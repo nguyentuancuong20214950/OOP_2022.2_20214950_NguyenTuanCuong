@@ -1,0 +1,39 @@
+    private DigitalVideoDisc [] dvdList;
+    private int qtyList = dvdList.length;
+    public void addDigitalVideoDisc(DigitalVideoDisc [] dvdList) { //add 1 list dvd vào cart
+    		if (qtyList+qtyOrdered>= MAX_NUMBERS_ORDERED) {
+    				System.out.print("sorry, the list added to the cart will lead to cart full");
+		}
+    		else { 
+    			int a,b;
+    			for (a=0; a <= qtyList; a++) {
+    				for (b=0; b<=qtyOrdered; b++) {
+    					if (itemsOrdered[b] == dvdList[a]) {dvdList[a]=null;}; //loại bỏ những disc bị trùng giữa dvdList và itemsOdered
+				}
+    				for (DigitalVideoDisc i: dvdList) {
+        				addDigitalVideoDisc(i);} //thêm disc ở index i của dvdList vào itemsOrdered
+    			}
+    		}
+    }
+
+
+    public void addDigitalVideoDisc(DigitalVideoDisc... dvds) {//    add 1 số lượng dvd tuỳ ý vào cart
+    	if (dvds.length+qtyOrdered>= MAX_NUMBERS_ORDERED) {
+			System.out.print("sorry, the number of dvds added to the cart will lead to cart full");
+	}
+    	else { 
+    		int a,b;
+    		for (a=0; a <= dvds.length; a++) {
+    			for (b=0; b<=qtyOrdered; b++) {
+    				if (itemsOrdered[b] == dvds[a]) {dvds[a]=null;}; //loại bỏ những disc bị trùng giữa dvds và itemsOdered
+				}
+    			for (DigitalVideoDisc i: dvds) {
+    				addDigitalVideoDisc(i);} //thêm disc ở index i của dvds vào itemsOrdered
+    		}
+    	}
+    }
+ public void addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
+    	if ((qtyOrdered + 2) > MAX_NUMBERS_ORDERED) {
+    		System.out.print("Sorry, add 2 dvds to your cart will make it full");}
+    	else { addDigitalVideoDisc(dvd1); addDigitalVideoDisc(dvd2);}
+ }

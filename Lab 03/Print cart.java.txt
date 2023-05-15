@@ -1,0 +1,9 @@
+ public void print() {
+    	System.out.print("**********Cart**********\nOreder Items: ");
+    	int i;
+    	for (i=0; i<= qtyOrdered; i++) {
+    		if (itemsOrdered[i] != null) {System.out.println((i+1) + itemsOrdered[i].toString());}
+    	}
+    	System.out.println("Total cost:"+ this.totalCost() );
+    	System.out.println("***********************");   	
+    }
