@@ -1,0 +1,20 @@
+import java.util.ArrayList;
+import java.util.List; 
+public class book  extends Media{
+
+	private List<String> authors = new ArrayList<String>();
+	
+	public void addAuthor(String AuthorName) {
+		if (authors.contains(AuthorName)) { System.out.println("This authors is already in the authors list");
+		}
+		else { authors.add(AuthorName);
+		}
+	}	
+	
+	public void removeAuthor(String AuthorName) {
+		if (authors.contains(AuthorName)==false) { System.out.println("This author is not in the author list");
+		}
+		else {authors.remove(AuthorName);
+		}
+	}
+}

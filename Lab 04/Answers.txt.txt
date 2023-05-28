@@ -1,0 +1,5 @@
+Quest: If the passing object is not an instance of Media, what happens?
+
+Ans: when the passed object is not an instance of the Media, it through out an error: "Exception in thread "main" java.lang.NullPointerException: Cannot invoke "Media.getTitle()" because "disc" is null
+	at Media.equals(Media.java:34)
+	at CartTest.main(CartTest.java:13)".

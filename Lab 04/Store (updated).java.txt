@@ -1,0 +1,54 @@
+import java.util.ArrayList;
+
+public class Store {
+
+	private ArrayList<Media> itemsInStore = new ArrayList<Media>();
+	/*public static int qtyitemsInStore;
+	
+	public int getqtyitemsInStore() {
+		return qtyitemsInStore;
+	}
+	public void addDVD(DigitalVideoDisc... dvds) {
+		int i;
+		for (DigitalVideoDisc dvd: dvds) {
+			for (i=0;i<itemsInStore.length;i++){
+				if (this.itemsInStore[i] == null){
+					this.itemsInStore[i] = dvd ;
+					qtyitemsInStore++;
+					break;
+				}
+			}  
+		}
+	}
+	public void removeDVD(DigitalVideoDisc dvd1) {
+		for (DigitalVideoDisc dvd: itemsInStore) {
+			if (dvd!=null) {
+				if (dvd.equals(dvd1)) { dvd = null; qtyitemsInStore--;}
+			}
+		}
+	}*/
+	
+	public int numberOfItems() {
+		return itemsInStore.size();
+		}
+	
+	public void addMedia(Media disc) {
+		if (itemsInStore.contains(disc)) {System.out.println("This item is already in the store");
+		}
+		else {
+			itemsInStore.add(disc);
+			System.out.println("add done!! hehe again");
+		}
+	}
+	
+	public void removeMedia(Media disc) {
+		if (itemsInStore.contains(disc)==false) {
+			System.out.println("This item is not in the store");
+		}
+		else {
+			itemsInStore.remove(disc);
+		}
+	}
+
+
+}

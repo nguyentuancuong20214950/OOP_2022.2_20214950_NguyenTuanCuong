@@ -1,0 +1,58 @@
+import java.util.ArrayList;
+
+public class CompactDisc extends Disc implements Playable {
+
+	private String artist;
+	private ArrayList<Track> tracks = new ArrayList<Track>();
+	
+	
+	public String getArtist() {
+		return artist;
+	}
+
+	public CompactDisc(String artist, ArrayList<Track> tracks) {
+		super();
+		this.artist = artist;
+		this.tracks=tracks;
+	}
+
+	public void addTrack(Track track) {
+		if (tracks.contains(track)) {System.out.println( "This trackis already in the track list");
+		}
+		else {
+			tracks.add(track);
+			System.out.println( "This track is added to the track list");
+		}
+	}
+	
+	public void removeTrack(Track track) {
+		if (tracks.contains(track)==false) {System.out.println("This track is not in the track list");
+		}
+		else {tracks.remove(track);
+		}
+	}
+	
+	public int getLength() {
+		int sum=0;
+		for (Track trk: tracks) {
+			sum = sum + trk.getLength();
+		}
+		return sum;
+	}
+	
+	public void play() {
+		System.out.println("Playing CD: " + this.getTitle());
+		System.out.println("CD's category:" + this.getCategory());
+		System.out.println("CD's artist:" + this.getArtist());
+		System.out.println("CD's director:" + this.getDirector());
+		for (Track trk: tracks) {
+			trk.play();
+		}
+		System.out.println("CD length: " + this.getLength());
+		System.out.println("CD's cost:"+ this.getCost());
+	}
+		public CompactDisc() {
+		// TODO Auto-generated constructor stub
+	}
+
+}
