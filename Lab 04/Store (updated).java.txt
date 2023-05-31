@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Store {
 
@@ -33,11 +34,11 @@ public class Store {
 		}
 	
 	public void addMedia(Media disc) {
-		if (itemsInStore.contains(disc)) {System.out.println("This item is already in the store");
+		if (itemsInStore.contains(disc)) {System.out.print("This item is already in the store");
 		}
 		else {
 			itemsInStore.add(disc);
-			System.out.println("add done!! hehe again");
+			System.out.println("add " + disc.getTitle()+" done!!");
 		}
 	}
 	
@@ -49,6 +50,21 @@ public class Store {
 			itemsInStore.remove(disc);
 		}
 	}
+	
+	public void showItems() {
+		System.out.println("Current store's items:");
+		for (Media m: itemsInStore) {
+			System.out.println("+"+m.toString());
+		}
+	}
 
-
+	public Media searchBytitle(String title) {
+		Media re = null;
+		for (Media m: itemsInStore) {
+			if (m.getTitle() == title) {
+				re = m;
+			}
+		}
+		return re;
+	}
 }

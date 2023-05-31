@@ -1,3 +1,4 @@
+import java.text.MessageFormat;
 import java.util.ArrayList;
 
 public class CompactDisc extends Disc implements Playable {
@@ -17,11 +18,11 @@ public class CompactDisc extends Disc implements Playable {
 	}
 
 	public void addTrack(Track track) {
-		if (tracks.contains(track)) {System.out.println( "This trackis already in the track list");
+		if (tracks.contains(track)) {System.out.print( track.getTitle()+" is already in the track list");
 		}
 		else {
 			tracks.add(track);
-			System.out.println( "This track is added to the track list");
+			System.out.println( track.getTitle()+" is added to the track list");
 		}
 	}
 	
@@ -51,7 +52,16 @@ public class CompactDisc extends Disc implements Playable {
 		System.out.println("CD length: " + this.getLength());
 		System.out.println("CD's cost:"+ this.getCost());
 	}
-		public CompactDisc() {
+	
+	public String toString() {
+		String pattern = "CD: {0} - {1} - {2} - {3}: {4}$ ";
+		//Object[] arguments = {this.getTitle(), this.getCategory(), this.getDirector(), this.getLength(), this.getCost()};
+		
+		String output = MessageFormat.format(pattern, this.getTitle(), this.getCategory(), this.getDirector(), this.getLength(), this.getCost());
+		return output;
+	}
+	
+	public CompactDisc() {
 		// TODO Auto-generated constructor stub
 	}
 

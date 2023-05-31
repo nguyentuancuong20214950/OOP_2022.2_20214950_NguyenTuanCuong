@@ -1,5 +1,18 @@
+Quest: Which classes are aggregates of other classes? Checking all constructors of whole classes if they initialize for their parts?
+
+Ans: Store class is aggregates of Media class.
+	Cart class is also aggregates of Media class.
+	CompactDisc is aggregates of Track class.
+	Aims is aggregates of Store, Cart class.
+
 Quest: If the passing object is not an instance of Media, what happens?
 
 Ans: when the passed object is not an instance of the Media, it through out an error: "Exception in thread "main" java.lang.NullPointerException: Cannot invoke "Media.getTitle()" because "disc" is null
 	at Media.equals(Media.java:34)
 	at CartTest.main(CartTest.java:13)".
+
+Quest: Create an ArrayList of Media, then add some media (CD, DVD or Book) into the list. 
+
+- Iterate through the list and print out the information of the media by using toString() method. Observe what happens and explain in detail. 
+
+Ans: As we write differrent toString() method for each kind of media, when we iterate through the list, the toString() method will behave differently according to that kind od media. For example: toString() for DVD will print title and length, while for Book' it prints just title. This's called polymorphism.
