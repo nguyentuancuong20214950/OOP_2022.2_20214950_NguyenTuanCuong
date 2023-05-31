@@ -18,9 +18,14 @@ public class Track implements Playable{
 	}
 
 	public void play() {
+		if (this.getLength() <= 0) {
+			System.out.println("Can't be play cause of the length");
+		}
+		else {
 		System.out.print("Playing Track: " + this.getTitle());
 		System.out.print("  Track length: " + this.getLength());
 		System.out.println(" ");
+		}
 	}
 	
 	public boolean equals(Track disc) {
